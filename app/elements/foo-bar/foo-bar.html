@@ -67,14 +67,22 @@ Polymer({
 
     _fooChanged: function(newFoo, oldFoo) {
         if (!newFoo) return;
-        this.bar = null;
-        this._fooOrBar = 'foo';
+        if (this.bar) {
+            this.bar = null;
+            this._fooOrBar += newFoo;
+        } else {
+            this._fooOrBar = newFoo;
+        }
     },
 
     _barChanged: function(newBar, oldBar) {
         if (!newBar) return;
-        this.foo = null;
-        this._fooOrBar = 'bar';
+        if (this.foo) {
+            this.foo = null;
+            this._fooOrBar += newBar;
+        } else {
+            this._fooOrBar = newBar;
+        }
     },
 
     _computeFooOrBar: function(_fooOrBar) {

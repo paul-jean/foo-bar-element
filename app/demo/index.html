@@ -43,5 +43,25 @@
             <foo-bar id="foo-or-bar" foo={{selection.dataset.foo}} bar={{selection.dataset.bar}}></foo-bar>
         </template>
 
+        <h3>foo AND bar specified in the order: foo bar</h3>
+        <foo-bar id="foo-then-bar" foo='foo' bar='bar'></foo-bar>
+
+        <h3>foo AND bar specified in the order: bar foo</h3>
+        <foo-bar id="bar-then-foo" bar='bar' foo='foo' ></foo-bar>
+
+        <!-- Can't access selected-values array elements inside binding annotations
+        <h3>Select foo and/or bar:</h3>
+        <h4>(Making a selection sets both foo AND bar attributes of the same foo-bar element.)</h4>
+        <template is="dom-bind">
+            <div class="selector">
+                <iron-selector multi selected-values={{selections}} attr-for-selected="name">
+                    <div name="foo">foo</div>
+                    <div name="bar">bar</div>
+                </iron-selector>
+            </div>
+            <foo-bar id="foo-and-bar" foo={{selections.foo}} bar={{selections.bar}}></foo-bar>
+        </template>
+        -->
+
     </body>
 </html>
