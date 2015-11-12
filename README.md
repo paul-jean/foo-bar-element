@@ -5,10 +5,13 @@ attributes specified in a polymer element effects the result.
 
 ## Install
 
+To install the dependencies, run `npm install` and `bower install`.
+
 ## Demo
 
 To run the demo, run `gulp serve` from the project root and navigate to
-http://localhost:5000/app/demo/ in your browser (the gulp `serve` task might
+[http://localhost:5000/app/demo/](http://localhost:5000/app/demo/)
+in your browser (the gulp `serve` task might
 open the browser window for you, but in my case only opens the root dir, so
 you need to append "app/demo/" to the path):
 
