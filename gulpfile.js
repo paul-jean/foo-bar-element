@@ -222,11 +222,15 @@ gulp.task('serve', ['styles', 'elements', 'images'], function () {
     //       will present a certificate warning in the browser.
     // https: true,
     server: {
-      baseDir: ['.tmp', 'app'],
-      middleware: [ historyApiFallback() ],
-      routes: {
-        '/bower_components': 'bower_components'
-      }
+        // Commenting out baseDir option since it causes problems:
+        // http://stackoverflow.com/questions/29437821/gulp-localhost-cannot-get
+        //baseDir: ['.tmp', 'app'],
+        middleware: [ historyApiFallback() ],
+        // Using proxy option instead of baseDir:
+        proxy: 'localhost',
+        routes: {
+            '/bower_components': 'bower_components'
+        }
     }
   });
 
