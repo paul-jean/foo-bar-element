@@ -1,0 +1,86 @@
+<link rel="import" href="../../../bower_components/polymer/polymer.html">
+
+<!--
+<ps-avatar></ps-avatar>
+
+@group PhotoShelter.com Elements
+@element ps-avatar
+@demo demo/index.html
+@hero hero.svg
+-->
+<dom-module id="foo-bar">
+
+    <template>
+        <p>{{_displayFooOrBar}}</p>
+    </template>
+
+</dom-module>
+
+<script>
+    /**
+      `foo-bar` displays either the foo or bar attributes:
+
+      Example:
+      <foo-bar foo></foo-bar> => foo
+
+      Example:
+      <foo-bar bar></foo-bar> => bar
+
+      If both foo and bar are present, the behavior depends on the
+      order in which they appear:
+
+      Example:
+      <foo-bar foo bar></foo-bar> => foo
+
+      Example:
+      <foo-bar bar foo></foo-bar> => bar
+
+      @demo demo/index.html
+     **/
+
+Polymer({
+
+    is: 'foo-bar',
+
+    properties: {
+
+        foo: {
+            type: String,
+            observer: '_fooChanged'
+        },
+
+        bar: {
+            type: String,
+            observer: '_barChanged'
+        },
+
+        _fooOrBar: {
+            type: String
+        },
+
+        _displayFooOrBar: {
+            type: String,
+            computed: '_computeFooOrBar(_fooOrBar)'
+        }
+
+    },
+
+    _fooChanged: function(newFoo, oldFoo) {
+        if (!newFoo) return;
+        this.bar = null;
+        this._fooOrBar = 'foo';
+    },
+
+    _barChanged: function(newBar, oldBar) {
+        if (!newBar) return;
+        this.foo = null;
+        this._fooOrBar = 'bar';
+    },
+
+    _computeFooOrBar: function(_fooOrBar) {
+        return _fooOrBar;
+    }
+
+});
+
+</script>
